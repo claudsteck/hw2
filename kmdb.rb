@@ -300,5 +300,6 @@ actor_name = actor_var["name"]
 
 roles = Role.all
 for role in roles
-    puts " #{movie_name} #{actor_name} #{role["character_name"]}"
+    puts "#{movie_name} #{actor_name} #{role["character_name"]}"
 end
+#I know the above is wrong, but I can't figure this out :'( and I've run out of time...
