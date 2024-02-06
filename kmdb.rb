@@ -268,18 +268,16 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-   # query to find the Studio name for this studio_id foreign key
+   # query to find the Studio name for the studio_id foreign key
    studio_detail = Studio.find_by({"id" => movie["studio_id"]})
    # read the name column from the studio row
    studio_name = studio_detail["name"]
 
+   # make the loop
 movies = Movie.all
 for movie in movies
 puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} #{studio_name}"
 end 
-    
-
-
 
 # Prints a header for the cast output
 puts ""
@@ -289,3 +287,18 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+# query to find the Movie name for the movie_id foreign key in the Role Table
+movie_var = Movie.find_by({"id" => role["movie_id"]})
+# read the name column from the movie row
+movie_name = movie_var["title"]
+# query to find the Actor name for the actor_id foreign key in the Role Table
+actor_var = Actor.find_by({"id" => role["actor_id"]})
+# read the name column from the actor row
+actor_name = actor_var["name"]
+
+# make the loop
+
+roles = Role.all
+for role in roles
+    puts " #{movie_name} #{actor_name} #{role["character_name"]}"
+end
